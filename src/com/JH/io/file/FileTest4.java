@@ -32,7 +32,6 @@ public class FileTest4 {
 			f.mkdir();
 		} //for문
 		
-		
 		Random r = new Random();
 		int a = r.nextInt();
 		File f2 = new File("c:\\test||" + a);
