@@ -42,9 +42,9 @@ public class ServerTest3 {
 			
 			
 			
-			is = sc.getInputStream(); //클라이언트로부터 받은 메세지
+			is = sc.getInputStream(); //클라이언트로부터 받은 메세지,byte
 			ir = new InputStreamReader(is);//char
-			br = new BufferedReader(ir);
+			br = new BufferedReader(ir);//string
 			String s = br.readLine();
 			String name=null;
 			String a = null;
@@ -106,6 +106,8 @@ public class ServerTest3 {
 				ow.close();
 				os.close();
 				ssc.close();
+				ss.close();
+				sc.close();
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

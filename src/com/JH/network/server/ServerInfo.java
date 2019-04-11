@@ -46,6 +46,7 @@ public class ServerInfo {
 			}
 
 		}
+		return false;
 
 	}
 
@@ -71,7 +72,7 @@ public class ServerInfo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return check;
+		return false;
 
 
 

@@ -27,26 +27,27 @@ public class ClientTest3 {
 
 			s = new Socket("211.238.142.25",8180);
 			System.out.println("서버와 접속 성공");
+
+			os = s.getOutputStream();//서버로 보낼 메세지,byte
+			ow = new OutputStreamWriter(os);//char
+			bw = new BufferedWriter(ow); //string
 			
-				os = s.getOutputStream();
-				ow = new OutputStreamWriter(os);//char
-				bw = new BufferedWriter(ow);
 
-				System.out.println("1. 점심   2. 저녁  3. 아무거나 "); //서버로 보낼 메세지
-				String str= sc.nextLine();
+			System.out.println("1. 점심   2. 저녁  3. 아무거나 "); 
+			String str= sc.nextLine();
 
-				bw.write(str);
-				bw.write("\r\n");
-				bw.flush();
+			bw.write(str);
+			bw.write("\r\n");
+			bw.flush();
 
 
-				is = s.getInputStream(); //서버로부터 받은 메세지
-				ir = new InputStreamReader(is);//char
-				br = new BufferedReader(ir);
-				str = br.readLine();
+			is = s.getInputStream(); //서버로부터 받은 메세지
+			ir = new InputStreamReader(is);//char
+			br = new BufferedReader(ir);
+			str = br.readLine();
 
-				System.out.println("오늘의 메뉴 : "+str);
-			
+			System.out.println("오늘의 메뉴 : "+str);
+
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,6 +63,7 @@ public class ClientTest3 {
 				ir.close();
 				is.close();
 				sc.close();
+				s.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
